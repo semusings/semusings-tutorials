@@ -36,6 +36,7 @@ class RomanToIntegerTest {
     private static class Solution1 {
 
         public int romanToInt(String s) {
+            // S: O(128)
             int[] numeralsMap = new int[128];
             numeralsMap['I'] = 1;
             numeralsMap['V'] = 5;
@@ -48,7 +49,9 @@ class RomanToIntegerTest {
             int result = 0;
             int index = 0;
 
+            // T: O(n)
             while (index < s.length()) {
+                // T: O(1)
                 char c = s.charAt(index);
                 if (c == 'I') {
                     if (index + 1 < s.length()) {
@@ -88,6 +91,7 @@ class RomanToIntegerTest {
     private static class Solution2 {
 
         public int romanToInt(String s) {
+            // S: O(128)
             int[] numeralsMap = new int[128];
             numeralsMap['I'] = 1;
             numeralsMap['V'] = 5;
@@ -101,13 +105,17 @@ class RomanToIntegerTest {
             int result = 0;
             int index = 0;
 
+            // S: O(128 * 2)
             char[][] specialCharsMap = new char[128][2];
             specialCharsMap['I'] = new char[]{'V', 'X'};
             specialCharsMap['X'] = new char[]{'L', 'C'};
             specialCharsMap['C'] = new char[]{'D', 'M'};
 
+            // T: O(n)
             while (index < length) {
+                // T: O(1)
                 char c = s.charAt(index);
+                // T: O(1)
                 char[] specialChars = specialCharsMap[c];
                 if (specialChars != null) {
                     int nci = index + 1;
@@ -130,6 +138,7 @@ class RomanToIntegerTest {
     private static class Solution3 {
 
         public int romanToInt(String s) {
+            // S: O(7 + 7)
             Map<Character, Integer> numeralsMap = Map.of(
                     'I', 1,
                     'V', 5,
@@ -144,14 +153,17 @@ class RomanToIntegerTest {
             int result = 0;
             int index = 0;
 
+            // S: O(3 * 2)
             Map<Character, Character[]> specialCharsMap = Map.of(
                     'I', new Character[]{'V', 'X'},
                     'X', new Character[]{'L', 'C'},
                     'C', new Character[]{'D', 'M'}
             );
 
+            // T: O(n)
             while (index < length) {
                 char c = s.charAt(index);
+                // T: O(1)
                 Character[] specialChars = specialCharsMap.get(c);
                 if (specialChars != null) {
                     int nci = index + 1;
