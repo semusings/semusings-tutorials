@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Map;
 import java.util.stream.Stream;
 
 class RomanToIntegerTest {
@@ -28,6 +29,7 @@ class RomanToIntegerTest {
     void test(String s, int expected) {
         Assertions.assertEquals(expected, new Solution1().romanToInt(s));
         Assertions.assertEquals(expected, new Solution2().romanToInt(s));
+        Assertions.assertEquals(expected, new Solution3().romanToInt(s));
     }
 
 
@@ -119,6 +121,50 @@ class RomanToIntegerTest {
                     }
                 }
                 result += numeralsMap[c];
+                index += 1;
+            }
+            return result;
+        }
+    }
+
+    private static class Solution3 {
+
+        public int romanToInt(String s) {
+            Map<Character, Integer> numeralsMap = Map.of(
+                    'I', 1,
+                    'V', 5,
+                    'X', 10,
+                    'L', 50,
+                    'C', 100,
+                    'D', 500,
+                    'M', 1000
+            );
+
+            int length = s.length();
+            int result = 0;
+            int index = 0;
+
+            Map<Character, Character[]> specialCharsMap = Map.of(
+                    'I', new Character[]{'V', 'X'},
+                    'X', new Character[]{'L', 'C'},
+                    'C', new Character[]{'D', 'M'}
+            );
+
+            while (index < length) {
+                char c = s.charAt(index);
+                Character[] specialChars = specialCharsMap.get(c);
+                if (specialChars != null) {
+                    int nci = index + 1;
+                    if (nci < length) {
+                        char nc = s.charAt(nci);
+                        if (nc == specialChars[0] || nc == specialChars[1]) {
+                            result += (numeralsMap.get(nc) - numeralsMap.get(c));
+                            index += 2;
+                            continue;
+                        }
+                    }
+                }
+                result += numeralsMap.get(c);
                 index += 1;
             }
             return result;
