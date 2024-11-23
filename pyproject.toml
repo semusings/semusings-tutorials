@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "semusings-tutorials"
+version = "0.1.0"
+description = ""
+authors = ["semusings <bhuwan.upadhyay49@gmail.com>"]
+readme = "README.md"
+packages = [{include = "semusings_tutorials"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+diagrams = "^0.24.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
