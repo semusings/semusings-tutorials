@@ -1,0 +1,41 @@
+name: infra-postgres
+services:
+  postgres-db:
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_PASSWORD=postgres-db-password
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    networks:
+      - semusings-tutorials
+    ports:
+      - "5432:5432"
+  postgres-bootstrap:
+    build:
+      context: ./postgres
+      dockerfile: bootstrap.dockerfile
+    environment:
+      - POSTGRES_HOST=postgres-db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres-db-password
+    depends_on:
+      - postgres-db
+    networks:
+      - semusings-tutorials
+  postgres-admin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+    depends_on:
+      - postgres-db
+    ports:
+      - "5400:80"
+    networks:
+      - semusings-tutorials
+networks:
+  semusings-tutorials:
+volumes:
+  postgresdata:
