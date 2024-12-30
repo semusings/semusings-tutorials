@@ -1,4 +1,12 @@
-# AWS Certified Developer - Associate (DVA-C02) Exam Guide
+---
+marp: true
+theme: semusings
+paginate: true
+header: '© Software Engineering Musings - <https://semusings.dev/> - subscribe us on :yt: 📺 at <https://youtube.com/@semusings>'
+footer: ''
+---
+
+# AWS Certified Developer - Associate (DVA-C02)
 
 ---
 ## Exam Content Domains and Weightings

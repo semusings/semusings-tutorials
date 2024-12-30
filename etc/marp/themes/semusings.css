@@ -1,0 +1,28 @@
+/* @theme semusings */
+
+@import 'default';
+
+/* https://fonts.google.com/selection/embed */
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+section {
+    font-family: "Delius", serif;
+    font-weight: 400;
+    font-style: normal;
+    background: white;
+}
+
+section {
+    overflow: auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 20px!important;
+}
+
+code {
+    font-family: "Source Code Pro", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px!important;
+}
