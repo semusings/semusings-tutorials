@@ -28,3 +28,4 @@ build
 poetry.lock
 package-lock.json
 node_modules
+public
