@@ -1,4 +1,4 @@
-package dev.semusings.tutorials.leetcode;
+package dev.semusings.tutorials.codingproblems;
 
 import java.util.stream.Stream;
 
