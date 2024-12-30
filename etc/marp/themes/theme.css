@@ -1,0 +1,11 @@
+/* @theme your-theme */
+
+@import 'default';
+
+
+section {
+    overflow: auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
