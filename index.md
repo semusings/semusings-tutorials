@@ -10,3 +10,7 @@
 ## AWS Certified Developer - Associate (DVA-C02)
 
 - [1. Exam Guide](AWS%20Certified%20Developer%20-%20Associate%20(DVA-C02)/1-exam-guide)
+
+---
+
+## Code Design Patterns
